@@ -1,0 +1,84 @@
+[main]
+Class="Function"
+Prototype="int main(int argc, char **argv);"
+
+[OpenSequence]
+Class="Function"
+Prototype="int OpenSequence(int panel, int *iFileSelected);"
+
+[CheckSequence]
+Class="Function"
+Prototype="int CheckSequence(int *iStartSequence);"
+
+[ExecuteSequence]
+Class="Function"
+Prototype="int ExecuteSequence(char *sequenceName, short useProcessModel);"
+
+[InitEngine]
+Class="Function"
+Prototype="int InitEngine();"
+
+[DisplayOLEError]
+Class="Function"
+Prototype="int DisplayOLEError(int iError, ERRORINFO *errorInfo);"
+
+[hCheckResult]
+Class="Function"
+Prototype="long hCheckResult(long hResult, char *cFunctionName, ERRORINFO hErrorInfo);"
+
+[iCheckError]
+Class="Function"
+Prototype="int iCheckError(int iError, char *cFunctionName);"
+
+[iCheckUIError]
+Class="Function"
+Prototype="int iCheckUIError(int iError, char *cFunctionName);"
+
+[sCheckGTSLError]
+Class="Function"
+Prototype="short sCheckGTSLError(short sErrorOccurred, long lErrorCode, char *cErrorMessage, char *cFunctionName);"
+
+[iOpenTraceFile]
+Class="Function"
+Prototype="int iOpenTraceFile();"
+
+[iCloseTraceFile]
+Class="Function"
+Prototype="int iCloseTraceFile();"
+
+[iTraceText]
+Class="Function"
+Prototype="int iTraceText(char *cTextToTrace);"
+
+[CheckForFixtureCodes]
+Class="Function"
+Prototype="int CheckForFixtureCodes(struct IniStructForwardReferenceTag *IniFileHandle);"
+
+[AppendFixtureCode]
+Class="Function"
+Prototype="int AppendFixtureCode(char *cProductName, char *cFixtureCode, char *cSequencePath, char *cRunBatchFile, int iWaitForBatchFile, double dDelayAfterBatchFile);"
+
+[UpDateFixtureCodeList]
+Class="Function"
+Prototype="void UpDateFixtureCodeList();"
+
+[GetFixtureData]
+Class="Function"
+Prototype="int GetFixtureData(int iFixtureListItem, char *cFixtureCode, char *cProductName, char *cSequencePath);"
+
+[LoadSequenceAndStartExecution]
+Class="Function"
+Prototype="int LoadSequenceAndStartExecution();"
+
+[StartFixtureCheck]
+Class="Function"
+Prototype="int StartFixtureCheck();"
+
+[LoadIniFile]
+Class="Function"
+Prototype="int LoadIniFile();"
+
+[CheckCommandline]
+Class="Function"
+Prototype="int CheckCommandline(int argc, char **argv);"
+

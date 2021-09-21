@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Edit RS-ITS RunSequence INI file</Title>
+<link href="swits_help.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY>
+<h1>INI File description of RS-ITS RunSequence</h1>
+<h1>General</h1>
+<p>The ini-file RunSequence.ini should be saved in the install directory of RunSequence (default: &quot;C:\Program Files\Spectral Electronic\SW-ITS\Bin\&quot;)</p>
+<p>You can control RS-ITS with different tags in the ini file.</p>
+<h1>Content</h1>
+<p><a href="#1">Control section and keys</a></p>
+<p><a href="#2">Product sections and keys</a></p>
+<h1><a name="1">Control section and keys</a></h1>
+<p>The section name is RunSequence. Do not edit the section names and the key name. In case of change RS-ITS RunSequence do not work properly.</p>
+<p><strong>ShowFileSelectPopup</strong>
+ </p>
+<p>1: The user must select a sequence, that is stored in <span class="special_01">DefaultDirectory</span>. The file select popup appears after start of RS-ITS RunSequence.</p>
+<p>0: The file select popup do not appear.</p>
+<p class="ombluedash">Default value: ShowFileSelectPopup = 0</p>
+<hr>
+<p><strong>DefaultDirectory </strong></p>
+<p>Specify a directory that be show if <strong>ShowFileSelectPopup</strong> value is set to 1.</p>
+<p class="ombluedash">Default value: DefaultDirectory = &quot;C:\Programme\Spectral Electronic\SW-ITS\Projects\&quot;</p>
+<hr>
+<p><strong>QuitAfterExecution </strong></p>
+<p>1: If the execution of selected sequence ends, RS-ITS RunSequence quits automatically.</p>
+<p>0: If the execution of selected sequence ends, RS-ITS RunSequence do <strong>not</strong> quit automatically.</p>
+<p class="ombluedash">Default value: QuitAfterExecution = 0</p>
+<hr>
+<p><strong><a name="3">TracingEnabled</a></strong></p>
+<p>1: RS-ITS RunSequence save all actions in a tracing file that would be stored in install directory.</p>
+<p>0: No trace file will be created.</p>
+<p class="ombluedash">Default value: TracingEnabled = 0</p>
+<hr>
+<p><strong>ShowLoadAndRunMenu</strong></p>
+<p>1: The menu item File -> Load and run sequence is enabled.</p>
+<p>0: The menu item File -> Load and run sequence is disabled.</p>
+<p class="ombluedash">Default value: ShowLoadAndRunMenu = 1</p>
+<hr>
+<p><strong><a name="4">EnableFixtureCheck</a></strong></p>
+<p>1: The button for activating fixture code check is enabled.</p>
+<p>0: The button for activating fixture code check is disabled.</p>
+<p class="ombluedash">Default value: EnableFixtureCheck = 1</p>
+<hr>
+<p><strong>AutoStartFixtureCheck</strong></p>
+<p>1: The fixture code check process starts automatically after RS-ITS RunSequence was started. All resources of the GUI are disabled.</p>
+<p>0: The fixture code check process does not start automatically after RS-ITS RunSequence was started.</p>
+<p class="ombluedash">Default value: AutoStartFixtureCheck = 0</p>
+<hr>
+<p><strong>NoFixtureCode</strong></p>
+<p>Specify a fixture code, that was returned by the GetFixtureCode.dll, if no fixture was mounted on test system.</p>
+<p class="ombluedash">Default value: NoFixtureCode = &quot;&quot;</p>
+<hr>
+<p><strong>FixtureSureCounter</strong></p>
+<p>The fixture code check process gets the fixture code one time per second. It is possible that the fixture code, while mounting the fixture, not recognized correctly. The value determines how often the code is read, before it is valued.  </p>
+<p class="ombluedash">Default value: FixtureSureCounter = 3</p>
+<hr>
+<p><strong>RunGlobalBatchFile</strong></p>
+<p>Specify a batch file (incl. the complete path). This file is executed before the TestStand Engine is initialized. Use this option to start synchronization processes.</p>
+<p class="ombluedash">Default value: RunGlobalBatchFile = ""</p>
+<hr>
+<p><strong>WaitForGlobalBatchFile</strong></p>
+<p>0: The batch file is started without waiting for the end of the execution.</p>
+<p>1: The batch file is started and waits for the end of the execution.</p>
+<p class="ombluedash">Default value: WaitForGlobalBatchFile = 1</p>
+<hr>
+<p><strong>DelayAfterGlobalBatchFile</strong></p>
+<p>Does not wait for the end of the execution of the batch file, you have the opportunity here to set a fixed waiting time.</p>
+<p class="ombluedash">Default value: DelayAfterGlobalBatchFiler = 0.0</p>
+<hr>
+<p>Example:<br><br><code>
+  [RunSequence]<br>
+  ShowFileSelectPopup = 0
+  <br>
+  DefaultDirectory = "C:\Programme\Spectral Electronic\Sw-ITS\Projects\" 
+  <br>
+  QuitAfterExecution = 0
+  <br>
+  TracingEnabled = 0
+  <br>
+  ShowLoadAndRunMenu = 1
+  <br>
+  EnableFixtureCheck = 1
+  <br>
+  AutoStartFixtureCheck = 0
+  <br>
+  NoFixtureCode = ""
+  <br>
+FixtureSureCounter = 3<br>
+RunGlobalBatchFile = ""<br>
+WaitForGlobalBatchFile = 1<br>
+DelayAfterGlobalBatchFile = 0.0<br>
+</code></p><hr>
+<h1><a name="2">Product sections and keys</a></h1>
+<p>RS-ITS RunSequence has a sequence file window. You can specify product names or ident numbers with corresponding sequence file and optional a fixture code. You can start test programs manually from sequence file window (hit &quot;<span class="special_01">Run Selected Sequence</span>&quot; button) or automatically by fixture codes (&quot;<span class="special_01">Fixture Code Check</span>&quot; button).</p>
+<p><img src="images/image03.jpg" alt="RS-ITS RunSequence" width="629" height="198"></p>
+<p>&nbsp;</p>
+<p>Create a new section in RS-ITS RunSequence INI file to specify product and sequence file in the sequence file window. The section name appears in the sequence file window. Specify the following keys in the new section:</p>
+<hr>
+<p><strong>FixtureCode</strong></p>
+<p>The fixture code must be an bijective value to identify the section. Please use quotes for this key!</p>
+<hr>
+<p><strong>Sequence</strong></p>
+<p>Specify the sequence path and file for your product and corresponding fixture code. Please use quotes for this key!</p>
+<hr>
+<p><strong>RunBatchFile</strong></p>
+<p>Specify a batch file (incl. the complete path). This file is executed before the selected sequence is executed. Use this option to start synchronization processes. Please use quotes for this key!</p>
+<hr>
+<p><strong>WaitForBatchFile</strong></p>
+<p>0: The batch file is started without waiting for the end of the execution.</p>
+<p>1: The batch file is started and waits for the end of the execution.</p>
+<hr>
+<p><strong>DelayAfterBatchFile</strong></p>
+<p>Does not wait for the end of the execution of the batch file, you have the opportunity here to set a fixed waiting time.</p><hr>
+<p>Example:<br>
+  <br>
+  <code> [3524-S-29898-2]<br>
+  FixtueCode = &quot;101&quot;<br>
+  </code><code>Sequence = &quot;C:\Pr&uuml;fprogramme\3524-S-29898-2\Testprogramm.seq&quot;<br>
+  <br>
+  [3524-S-29989-1]<br>
+FixtueCode = &quot;102&quot;<br>
+</code><code>Sequence = &quot;C:\Pr&uuml;fprogramme\3524-S-29989-1\Testprogramm.seq&quot;<br>
+RunBatchFile = &quot;C:\run_sync_proc.bat&quot;<br>
+WaitForBatchFile = 1<br>
+DelayAfterBatchFile = 0<br>
+
+</code></p>
+<p></p>
+<p>...</p>
+<hr>
+<p>&nbsp;</p>
+</BODY></HTML>

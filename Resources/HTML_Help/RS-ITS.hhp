@@ -1,0 +1,24 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=RS-ITS.chm
+Contents file=RS-ITS Table of Contents.hhc
+Default Font=Arial,9,0
+Default topic=_0_1_wichtige_informationen.htm
+Display compile progress=Yes
+Error log file=log.log
+Full-text search=Yes
+Index file=RS-ITS.hhk
+Language=0x407 Deutsch (Deutschland)
+Title=RS-ITS RunSequence
+
+
+[FILES]
+_0_1_wichtige_informationen.htm
+_0_2_functional_description.htm
+_0_3_ini_file.htm
+_0_4_command_line.htm
+_0_5_fixture_code_check.htm
+_0_6_errors.htm
+
+[INFOTYPES]
+

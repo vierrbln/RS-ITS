@@ -1,0 +1,13 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>In case of error</Title>
+<link href="swits_help.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY>
+<h1>In case of  error in test sequences</h1>
+<p>If a error occurred in test sequence file appear the standard National Instrumenst Teststand error window. The application RS-ITS RunSequence is now in &quot;always on top&quot; window mode. Make your choice and hit &quot;<span class="special_01">OK</span>&quot;. RS-ITS RunSequence is now in &quot;normal&quot; window mode.</p>
+<p><img src="images/image07.jpg" width="646" height="460"></p>
+</BODY>
+</HTML>

@@ -1,0 +1,19 @@
+callbacks.obj
+RunSequence.obj
+cvistart.lib
+cvi.lib
+cviauto.lib
+GetFixtureCode.lib
+hrestim.lib
+inifile.obj
+kernel32.lib
+toolbox.obj
+tsapicvi.obj
+tsui.obj
+user32.lib
+advapi32.lib
+gdi32.lib
+uuid.lib
+EXE Symbol Module
+Exports Module
+Resource Module

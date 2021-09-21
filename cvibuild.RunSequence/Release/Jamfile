@@ -1,0 +1,67 @@
+HDRS = 	"c:\\Programme\\Rohde&Schwarz\\GTSL\\Include"
+	"c:\\Program Files\\Rohde&Schwarz\\GTSL\\Include"
+	"c:\\Program Files (x86)\\Rohde-Schwarz\\GTSL\\Include"
+	"C:\\Users\\Public\\Documents\\National Instruments\\TestStand 2017 (32-bit)\\AdapterSupport\\CVI"
+	"C:\\Program Files (x86)\\National Instruments\\TestStand 2017\\API\\DLLInterfaces"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\instr\\TestStand\\API"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\activex\\word"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\activex\\excel"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\custctrl"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\custctrl\\custsupp"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\cvirtsup"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\datasock"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\daqUtil"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\printing"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\toolbox"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\reportgen"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\toolslib\\localui"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\instr"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\toolslib\\custctrl"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\toolslib\\custctrl\\custsupp"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\instr"
+	"C:\\ProgramData\\National Instruments\\CVI2017\\instr"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\include"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\include"
+	"C:\\ProgramData\\National Instruments\\CVI2017\\include"
+	"C:\\ProgramData\\National Instruments\\CVI\\include"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\include\\ansi"
+	"c:\\program files (x86)\\national instruments\\cvi2017\\include\\clang\\3.3"
+	"C:\\Program Files (x86)\\IVI Foundation\\IVI\\Include"
+	"C:\\Program Files (x86)\\IVI Foundation\\VISA\\winnt\\include"
+	"C:\\Program Files (x86)\\National Instruments\\Shared\\MSDTRedistributables\\SDKHeaderFiles\\8.1"
+	"o:\\S104_RunSequence.exe\\Version 2.0.0.16"
+	"c:\\Program Files (x86)\\Rohde-Schwarz\\GTSL\\Bin"
+	"c:\\Program Files (x86)\\National Instruments\\CVI2017\\bin"
+	"c:\\ProgramData\\National Instruments\\CVI2017\\bin"
+	"c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\Bin"
+	;
+include Jamfile_instr ;
+LOCATE on "callbacks.c" = "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS" ;
+LOCATE on "hrestim.h" = "c:\\Program Files (x86)\\Rohde-Schwarz\\GTSL\\Include" ;
+LOCATE on "rs.h" = "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS" ;
+LOCATE on "RunSequence.c" = "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS" ;
+LOCATE on "RunSequence.h" = "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS" ;
+LOCATE on "Splash.h" = "x:\\OneDrive\\softwerk4R\\Repos\\CommonResources" ;
+Object "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\callbacks.obj" : "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\callbacks.c" ;
+FILENUM on "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\callbacks.obj" = 1 ;
+DEFPROTS on "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\callbacks.obj" = "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\callbacks.obj.cvidefprots" ;
+OUTFILE on "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\callbacks.obj" = "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\callbacks.obj.out" ;
+PrjObjects += "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\callbacks.obj" ;
+Object "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.obj" : "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\RunSequence.c" ;
+FILENUM on "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.obj" = 2 ;
+DEFPROTS on "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.obj" = "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.obj.cvidefprots" ;
+OUTFILE on "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.obj" = "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.obj.out" ;
+PrjObjects += "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.obj" ;
+Object "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\mbinifile.obj" : "c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\instr\\TestStand\\API\\mbinifile.c" ;
+FILENUM on "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\mbinifile.obj" = 3 ;
+DEFPROTS on "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\mbinifile.obj" = "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\mbinifile.obj.cvidefprots" ;
+OUTFILE on "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\mbinifile.obj" = "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\mbinifile.obj.out" ;
+InstrObjects += "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\mbinifile.obj" ;
+Object "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\resources.res" : "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\resources.in.rc" ;
+Depends "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\resources.res" : "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\manifest.xml" ;
+MainFromObjects "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.exe" : $(PrjObjects) $(InstrObjects) ;
+Depends "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.exe" : "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\link_options.txt" ;
+Depends "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.exe" : "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\resources.res" ;
+Depends "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\resources.res" :  "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\rs.uir" ;
+Depends "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\resources.res" :  "x:\\OneDrive\\softwerk4R\\Repos\\CommonResources\\Splash_PETS.uir" ;
+Depends all : "x:\\OneDrive\\softwerk4R\\Repos\\RS-ITS\\cvibuild.RunSequence\\Release\\RunSequence.exe" ;

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Fixture code check</Title>
+<link href="swits_help.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY>
+<h1>Fixture Code Check</h1>
+<h1>General</h1>
+<p>RS-ITS RunSequence can load test sequences by a corresponding fixture code. This section describes how to use the program with the necessary <span class="special_01">GetFixtureCode.dll</span>.</p>
+<h1>Content</h1>
+<p><a href="#1">Control fixture code check</a></p>
+<p><a href="#2">Enable fixture code check</a></p>
+<p><a href="#3">Disable fixture code check</a></p>
+<p><a href="#4">Specified fixture code found</a></p>
+<p><a href="#5">Unkown fixture code found</a></p>
+<p><a href="#6">Sequence execution ends</a></p>
+<p><a href="#7">Program the GetFixtureCode.dll</a></p>
+<h1><a name="1">Control fixture code check</a></h1>
+<p>The dynamic link library GetFixtureCode.dll is necessary for using RS-ITS RunSequence. The DLL must be installed in the same directory like RS-ITS RunSequence. You can enable or disable the fixture code check process by hit the toggle button in RS-ITS RunSequence user interface. If the toggle is disabled and you cannot enable the fixture code check, please check the <a href="_0_3_ini_file.htm#4">ini file</a> of RS-ITS RunSequence.</p>
+<p><img src="images/image04.jpg" width="629" height="198"></p>
+<p>GetFixtureCode.dll must include the following three functions. </p>
+<ul>
+  <li>gfc_Setup</li>
+  <li>gfc_GetFixtureCode</li>
+  <li>gfc_Cleanup</li>
+</ul>
+<h1><a name="2">Enable fixture code check</a></h1>
+<p>If fixture code check disabled and you hit the toggle button &quot;<span class="special_01">Fixture Code Check</span>&quot; or press <span class="special_01">F2</span>, RS-ITS does following:</p>
+<ol>
+  <li>Call gfc_Setup function</li>
+  <li>Disable all resources of the graphical user interface (except &quot;<span class="special_01">File -&gt; Quit</span>&quot;)</li>
+  <li>Cyclic call of gfc_GetFixtureCode (one time per second)</li>
+  <li>While fixture code check is enabled, a optical signal shows that fixture code check is enabled.</li>
+</ol>
+<h1><a name="3">Disable fixture code check</a></h1>
+<p>If you hit the toggle button &quot;<span class="special_01">Fixture Code Check</span>&quot; or press <span class="special_01">F2</span> and fixture code check is enabled, fixture code check of RS-ITS RunSequence would be disabled.</p>
+<ol>
+  <li>    RS-ITS RunSequence call gfc_Cleanup function</li>
+  <li>Resets the user interface resources</li>
+</ol>
+<h1><a name="4">Specified fixture code found</a></h1>
+<p>If RS-ITS RunSequence found a fixture code that is specified in sequence file window, RS-ITS does following:</p>
+<ol>
+  <li>Disable the fixture code check toggle button</li>
+  <li>Call  gfc_Cleanup function</li>
+  <li>Load the correct sequence and start a new execution</li>
+</ol>
+<p> The fixture code check cannot be disabled while the test progam is running. </p>
+<h1><a name="5">Unkown fixture code found</a></h1>
+<p>If RS-ITS RunSequence found a unkown fixture you have three options:</p>
+<p><img src="images/image06.jpg" width="609" height="108"></p>
+<ol>
+  <li>Remove the fixture an click the button &quot;<span class="special_01">Fixture was removed. Continue.</span>&quot;.</li>
+  <li>Leave the fixture mounted and click the button &quot;<span class="special_01">Disable fixture check</span>&quot;.</li>
+  <li>Continue with selecting a sequence manually by clicking the button &quot;<span class="special_01">Select a sequence manually</span>&quot;.</li>
+</ol>
+<h1><a name="6">Sequence execution ends</a></h1>
+<p>If the execution ends RS-ITS RunSequence display a popup.</p>
+<p><img src="images/image05.jpg" width="374" height="121"></p>
+<p>Now you can remove the mounted fixture. After dismount click &quot;<span class="special_01">Yes</span>&quot; to activate fixture code check. Otherwise click the button &quot;<span class="special_01">No</span>&quot; and leave fixture code check process disabled.</p>
+<h1><a name="7">Program the GetFixtureCode.dll</a></h1>
+<p>For programming the GetFixtureCode.dll use the National Instruments&trade; LabWindows/CVI&trade; template. You can find the template in the install folder, develop, GetFixtureCode (e.g. C:\Programme\Spectral Electronic\Sw-ITS\Develop\GetFixtureCode). The dynamic link library must have three exported functions.</p>
+<ul>
+  <li>gfc_Setup: Prepare your devices for getting fixture code</li>
+  <li>gfc_GetFixtureCode: Get your fixture coded from your hardware and put it a string</li>
+  <li>gfc_Cleanup: Reset all needed hardware and free all resources</li>
+</ul>
+<p>Use the known error variables for best error handling in RS-ITS RunSequence.</p>
+<h1>Code example</h1>
+<p><code>#include &lt;ansi_c.h&gt;<br>
+#include &quot;GetFixtureCode.h&quot;</code></p>
+<p><code>void __stdcall gfc_Setup (CAObjHandle sequenceContext, short *errorOccurred,<br>
+  long *errorCode, char errorMessage[])<br>
+  {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int iSuccess;<br>
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iSuccess = me1400InitBoard(ME_BOARD_NUMBER);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!iSuccess)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*errorOccurred = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*errorOccurred = iSuccess;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;me1400GetDrvErrMess(errorMessage); <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iSuccess = me1400DIOSetPortDirection(ME_BOARD_NUMBER, PORTE, MEINPUT);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!iSuccess)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*errorOccurred = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*errorOccurred = iSuccess;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;me1400GetDrvErrMess(errorMessage); <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iSuccess = me1400DIOSetPortDirection(ME_BOARD_NUMBER, PORTF, MEINPUT);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!iSuccess)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*errorOccurred = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*errorOccurred = iSuccess;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;me1400GetDrvErrMess(errorMessage); <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}</code></p>
+<p><code>void __stdcall gfc_GetFixtureCode (CAObjHandle sequenceContext,<br>
+  char fixtureCode[], short *errorOccurred,<br>
+  long *errorCode, char errorMessage[])<br>
+  {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int iValuePortE;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int iValueBitF0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int iFixtureCode;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int iSuccess;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char cErrorMessage[1024];<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iSuccess = me1400DIGetByte(ME_BOARD_NUMBER, PORTE, &amp;iValuePortE);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!iSuccess)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*errorOccurred = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*errorOccurred = iSuccess;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;me1400GetDrvErrMess(errorMessage); <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iSuccess = me1400DIGetBit(ME_BOARD_NUMBER, PORTF,0, &amp;iValueBitF0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!iSuccess)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*errorOccurred = 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*errorOccurred = iSuccess;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;me1400GetDrvErrMess(errorMessage); <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iFixtureCode = (iValueBitF0 &lt;&lt; 8) + iValuePortE;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sprintf(fixtureCode, &quot;%d&quot;, iFixtureCode);<br>
+}</code></p>
+<p><code>void __stdcall gfc_Cleanup (CAObjHandle sequenceContext, short *errorOccurred,<br>
+  long *errorCode, char errorMessage[])<br>
+  {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Insert here the function for cleanup functions<br>
+ </code><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//For the example is no code necessary.<br>
+  }</code></p>
+<p class="omblue"><b>Note</b><br>
+The return value &quot;fixture code&quot; must be a array of characters. Some customers uses two fixture codes for upper and lower needle bed. Seperate these values by commas and return a complete fixture code string.<br>
+&nbsp;
+</p>
+<p class="omblue"><b>Note</b><br>
+Don't forget to free all resources and unlock all needed devices!<br>
+&nbsp;
+</p>
+<p>&nbsp;</p>
+</BODY>
+</HTML>

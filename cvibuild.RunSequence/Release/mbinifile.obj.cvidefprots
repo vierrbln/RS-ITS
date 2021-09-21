@@ -1,0 +1,212 @@
+[Ini_New]
+Class="Function"
+Prototype="struct IniStructForwardReferenceTag *Ini_New(int sorted);"
+
+[Ini_Dispose]
+Class="Function"
+Prototype="void Ini_Dispose(struct IniStructForwardReferenceTag *iniText);"
+
+[Ini_SectionExists]
+Class="Function"
+Prototype="int Ini_SectionExists(struct IniStructForwardReferenceTag *iniText, const char *sectionName);"
+
+[Ini_NumberOfItems]
+Class="Function"
+Prototype="int Ini_NumberOfItems(struct IniStructForwardReferenceTag *theIniText, const char *sectionName);"
+
+[Ini_NthItemName]
+Class="Function"
+Prototype="int Ini_NthItemName(struct IniStructForwardReferenceTag *theIniText, const char *sectionName, int index, char **itemName);"
+
+[Ini_NumberOfSections]
+Class="Function"
+Prototype="int Ini_NumberOfSections(struct IniStructForwardReferenceTag *theIniText);"
+
+[Ini_NthSectionName]
+Class="Function"
+Prototype="int Ini_NthSectionName(struct IniStructForwardReferenceTag *theIniText, int index, char **sectionName);"
+
+[Ini_LineOfLastAccess]
+Class="Function"
+Prototype="int Ini_LineOfLastAccess(struct IniStructForwardReferenceTag *theIniText);"
+
+[Ini_Sort]
+Class="Function"
+Prototype="void Ini_Sort(struct IniStructForwardReferenceTag *theIniText);"
+
+[Ini_SortInternally]
+Class="Function"
+Prototype="int Ini_SortInternally(struct IniStructForwardReferenceTag *theIniText);"
+
+[Ini_DisableInternalSorting]
+Class="Function"
+Prototype="void Ini_DisableInternalSorting(struct IniStructForwardReferenceTag *theIniText);"
+
+[Ini_DisableSorting]
+Class="Function"
+Prototype="void Ini_DisableSorting(struct IniStructForwardReferenceTag *theIniText);"
+
+[Ini_RemoveSection]
+Class="Function"
+Prototype="int Ini_RemoveSection(struct IniStructForwardReferenceTag *theIniText, const char *sectionName);"
+
+[Ini_RemoveItem]
+Class="Function"
+Prototype="int Ini_RemoveItem(struct IniStructForwardReferenceTag *theIniText, const char *sectionName, const char *itemName);"
+
+[Ini_WriteGeneric]
+Class="Function"
+Prototype="int Ini_WriteGeneric(struct IniStructForwardReferenceTag *theIniText, int (*outputFunc)(void *, char *), void *outputDest);"
+
+[Ini_WriteToFile]
+Class="Function"
+Prototype="int Ini_WriteToFile(struct IniStructForwardReferenceTag *theIniText, const char *pathName);"
+
+[Ini_ReadFromFile]
+Class="Function"
+Prototype="int Ini_ReadFromFile(struct IniStructForwardReferenceTag *theIniText, const char *pathName);"
+
+[Ini_ReadGeneric]
+Class="Function"
+Prototype="int Ini_ReadGeneric(struct IniStructForwardReferenceTag *theIniText, int (*inputFunc)(void *, char *, int, int *, int *), void *inputSource);"
+
+[Ini_PutInt]
+Class="Function"
+Prototype="int Ini_PutInt(struct IniStructForwardReferenceTag *dest, const char *section, const char *itemName, int value);"
+
+[Ini_PutUInt]
+Class="Function"
+Prototype="int Ini_PutUInt(struct IniStructForwardReferenceTag *dest, const char *section, const char *itemName, unsigned int value);"
+
+[Ini_PutDouble]
+Class="Function"
+Prototype="int Ini_PutDouble(struct IniStructForwardReferenceTag *dest, const char *section, const char *itemName, double value);"
+
+[Ini_PutBoolean]
+Class="Function"
+Prototype="int Ini_PutBoolean(struct IniStructForwardReferenceTag *dest, const char *section, const char *itemName, int boolValue);"
+
+[Ini_PutString]
+Class="Function"
+Prototype="int Ini_PutString(struct IniStructForwardReferenceTag *dest, const char *section, const char *itemName, const char *srcText);"
+
+[Ini_PutRawString]
+Class="Function"
+Prototype="int Ini_PutRawString(struct IniStructForwardReferenceTag *dest, const char *section, const char *itemName, const char *srcText);"
+
+[Ini_GetPointerToString]
+Class="Function"
+Prototype="int Ini_GetPointerToString(struct IniStructForwardReferenceTag *dest, const char *section, const char *itemName, char **destStr);"
+
+[Ini_GetPointerToRawString]
+Class="Function"
+Prototype="int Ini_GetPointerToRawString(struct IniStructForwardReferenceTag *dest, const char *section, const char *itemName, char **destStr);"
+
+[Ini_GetStringCopy]
+Class="Function"
+Prototype="int Ini_GetStringCopy(struct IniStructForwardReferenceTag *theIniText, const char *section, const char *itemName, char **value);"
+
+[Ini_GetRawStringCopy]
+Class="Function"
+Prototype="int Ini_GetRawStringCopy(struct IniStructForwardReferenceTag *theIniText, const char *section, const char *itemName, char **value);"
+
+[Ini_GetStringIntoBuffer]
+Class="Function"
+Prototype="int Ini_GetStringIntoBuffer(struct IniStructForwardReferenceTag *theIniText, const char *section, const char *itemName, char *buffer, int bufSize);"
+
+[Ini_GetRawStringIntoBuffer]
+Class="Function"
+Prototype="int Ini_GetRawStringIntoBuffer(struct IniStructForwardReferenceTag *theIniText, const char *section, const char *itemName, char *buffer, int bufSize);"
+
+[Ini_GetInt]
+Class="Function"
+Prototype="int Ini_GetInt(struct IniStructForwardReferenceTag *src, const char *section, const char *itemName, int *value);"
+
+[Ini_GetUInt]
+Class="Function"
+Prototype="int Ini_GetUInt(struct IniStructForwardReferenceTag *src, const char *section, const char *itemName, unsigned int *value);"
+
+[Ini_GetDouble]
+Class="Function"
+Prototype="int Ini_GetDouble(struct IniStructForwardReferenceTag *src, const char *section, const char *itemName, double *value);"
+
+[Ini_GetBoolean]
+Class="Function"
+Prototype="int Ini_GetBoolean(struct IniStructForwardReferenceTag *src, const char *section, const char *itemName, int *boolValue);"
+
+[Ini_ItemOrMultiLineItemExists]
+Class="Function"
+Prototype="int Ini_ItemOrMultiLineItemExists(struct IniStructForwardReferenceTag *theIniText, const char *section, const char *itemName);"
+
+[Ini_ItemExists]
+Class="Function"
+Prototype="int Ini_ItemExists(struct IniStructForwardReferenceTag *theIniText, const char *section, const char *itemName);"
+
+[LineFile_New]
+Class="Function"
+Prototype="struct LineFileForwardReferenceTag *LineFile_New(int (*inputFunc)(void *, int, int *, void *), void *inputSource);"
+
+[LineFile_Dispose]
+Class="Function"
+Prototype="void LineFile_Dispose(struct LineFileForwardReferenceTag *lineFile);"
+
+[LineFile_Read]
+Class="Function"
+Prototype="int LineFile_Read(struct LineFileForwardReferenceTag *lineFile, char *destBuf, int maxNumBytes, int *bytesRead, int *endOfFile);"
+
+[LineFile_ReadNonEmpty]
+Class="Function"
+Prototype="int LineFile_ReadNonEmpty(struct LineFileForwardReferenceTag *lineFile, char *destBuf, int maxNumBytes, int *bytesRead, int *endOfFile);"
+
+[LineFile_ReadEx]
+Class="Function"
+Prototype="int LineFile_ReadEx(struct LineFileForwardReferenceTag *lineFile, char **destBuf, int *numBytes, int *bytesRead, int *endOfFile);"
+
+[LineFile_ReadNonEmptyEx]
+Class="Function"
+Prototype="int LineFile_ReadNonEmptyEx(struct LineFileForwardReferenceTag *lineFile, char **destBuf, int *numBytes, int *bytesRead, int *endOfFile);"
+
+[LineFile_NumLinesRead]
+Class="Function"
+Prototype="int LineFile_NumLinesRead(struct LineFileForwardReferenceTag *lineFile);"
+
+[LineFile_OffsetOfLastLine]
+Class="Function"
+Prototype="int LineFile_OffsetOfLastLine(struct LineFileForwardReferenceTag *lineFile);"
+
+[LineFile_NumExtraLineTermChars]
+Class="Function"
+Prototype="int LineFile_NumExtraLineTermChars(struct LineFileForwardReferenceTag *lineFile);"
+
+[LineFile_NumCharsInEmptyLines]
+Class="Function"
+Prototype="int LineFile_NumCharsInEmptyLines(struct LineFileForwardReferenceTag *lineFile);"
+
+[LineFile_ReadFromFile]
+Class="Function"
+Prototype="int LineFile_ReadFromFile(void *inputSource, int numBytesToRead, int *numBytesRead, void *dest);"
+
+[Ini_SetTokens]
+Class="Function"
+Prototype="int Ini_SetTokens(struct IniStructForwardReferenceTag *iniText, char sectionNameStartCharacter, char sectionNameEndCharacter, const char *valueSeparator, const char *commentMarker);"
+
+[Ini_SetSectionFilter]
+Class="Function"
+Prototype="int Ini_SetSectionFilter(struct IniStructForwardReferenceTag *iniText, int (*sectionFilter)(struct IniStructForwardReferenceTag *, void *, char *), void *callbackData);"
+
+[Ini_SetDuplicateChecking]
+Class="Function"
+Prototype="int Ini_SetDuplicateChecking(struct IniStructForwardReferenceTag *iniText, int checkForDuplicates);"
+
+[Ini_PutData]
+Class="Function"
+Prototype="int Ini_PutData(struct IniStructForwardReferenceTag *iniText, const char *section, const char *itemName, const unsigned char *data, int dataSize);"
+
+[Ini_GetData]
+Class="Function"
+Prototype="int Ini_GetData(struct IniStructForwardReferenceTag *iniText, const char *section, const char *itemName, unsigned char **data, int *dataSize);"
+
+[Ini_CopySection]
+Class="Function"
+Prototype="int Ini_CopySection(struct IniStructForwardReferenceTag *source, const char *sectionToCopy, struct IniStructForwardReferenceTag *destination, int overwriteDuplicateSections);"
+

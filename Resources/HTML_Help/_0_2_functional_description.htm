@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Functional description</Title>
+<link href="swits_help.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.Stil1 {color: #FF0000}
+-->
+</style>
+</HEAD>
+<BODY>
+<h1>General</h1>
+<p>RunSequence (RS-ITS) is based on National Instruments Teststand and uses the engine of NI Teststand. You should use the program to start and control your test programs (NI Teststand sequence files) that you are developed with NI Teststand and the Spectral Test Libraries TL-ITS. This tool can do:</p>
+<ul>
+  <li>Start sequence executions</li>
+  <li>Terminate sequence executions</li>
+  <li>Abort sequence executions</li>
+  <li>Load und run sequence files automatically in order to a defined fixture code</li>
+</ul>
+<h1>Content</h1>
+<p><a href="#1">Login Process</a></p>
+<p><a href="#2">Loading and Running a sequence file</a></p>
+<p><a href="#3">Quit a execution</a></p>
+<p><a href="#4">Run a sequence from sequence window</a></p>
+<h1><a name="1">Login Process</a></h1>
+<p>RS-ITS uses den engine of NI Teststand, thus the user manager of NI Teststand. If you start RS-ITS, you have to login with your user name and password. RS-ITS checks the privilige to operate sequences. For more information please refer to the Teststand manuals.</p>
+<p><img src="images/image01.jpg" alt="Logon window" width="628" height="197"></p>
+<h1><a name="2">Loading and Running Sequences</a></h1>
+<p>The easiest way to start a sequence file is to start RS-ITS and hit the Menu &quot;<span class="special_01">File -&gt; Load and RunSequence</span>&quot;. Select a sequence and click the &quot;<span class="special_01">Load</span>&quot; button. The execution starts immediately.</p>
+<p><img src="images/image02.jpg" alt="Load and Run" width="424" height="196"></p>
+<p class="omblue"><b>Hint</b><br>
+We recommend that RS-ITS only executes templates sequences of SW-ITS with standard callback sequences, e.g. SequenceFileUnload. RS-ITS checks for these callback and shows you a confirm popup.<br>&nbsp;
+</p>
+<h1><a name="3">Quit a execution</a></h1>
+<p>To end a execution of standard SW-ITS Teststand sequences you should use the &quot;<span class="special_01">File -> Quit</span>&quot; menu item comes with CP-ITS (Control panel). The execution ends programmitically. This is the best way to end a execution. RS-ITS receive the end event and resets all reosurces of the user interace. It is possible that the sequence never ends (e.g. bug in sequence file or wrong sequence model). In this case you have to try two options:</p>
+<ol>
+  <li>Terminate execution: Click the menu item &quot;<span class="special_01">Debug -&gt; Terminate Execution</span>&quot;. The Teststand engine stops the current execution and runs all cleanup routines specified in sequence file. This way is save to reset the test system (power off etc.). If you use standard sequence model, Teststand shows you two options: &quot;<span class="special_01">Next UUT</span>&quot; or &quot;<span class="special_01">Terminate</span>&quot;. Please refer to Teststand manuals.</li>
+  <li>Abort execution: Clickthe menu item &quot;<span class="special_01">Debug -&gt; Abort Execution</span>&quot;. The Teststand engine try to stop the current execution immediately. <span class="special_01">Caution</span>: <span class="Stil1">Teststand don't run any reset sequences. All enabled sources in the test system may be leave activated</span>!</li>
+</ol>
+<h1><a name="4">Run a sequence from sequence window</a></h1>
+<p>If sequence files are specified in ini-file of RunSequence, RS-ITS will shows these files in the sequence file window. Click in these list to mark a sequence and hit the &quot;<span class="special_01">Run Selected Sequence</span>&quot; button or press <span class="special_01">F5</span> to start the execution. Right mouse click on list items shows detailed information incl. fixture code.</p>
+<p><img src="images/image03.jpg" width="629" height="198"></p>
+<p>&nbsp;</p>
+<p class="omblue"><b>Hint</b><br>
+Improve your execution performance: disable tracing and disable result recording. If you start RS-ITS and run a sequence, RS-ITS checks the internal settings and ask for disabling these options.<br>&nbsp;
+</p>
+
+</BODY>
+</HTML>

@@ -1,0 +1,84 @@
+[LoadAndRunSeq]
+Class="Function"
+Prototype="void LoadAndRunSeq(int menuBar, int menuItem, void *callbackData, int panel);"
+
+[ResumeExecution]
+Class="Function"
+Prototype="void ResumeExecution(int menuBar, int menuItem, void *callbackData, int panel);"
+
+[TerminateExecution]
+Class="Function"
+Prototype="void TerminateExecution(int menuBar, int menuItem, void *callbackData, int panel);"
+
+[ABORTEXECUTION]
+Class="Function"
+Prototype="void ABORTEXECUTION(int menuBar, int menuItem, void *callbackData, int panel);"
+
+[QUIT]
+Class="Function"
+Prototype="void QUIT(int menuBar, int menuItem, void *callbackData, int panel);"
+
+[OpenHelp]
+Class="Function"
+Prototype="void OpenHelp(int menuBar, int menuItem, void *callbackData, int panel);"
+
+[ShowSplashPanel]
+Class="Function"
+Prototype="void ShowSplashPanel(int menuBar, int menuItem, void *callbackData, int panel);"
+
+[PictureCallBack]
+Class="Function"
+Prototype="int PictureCallBack(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[SlpashCallBack]
+Class="Function"
+Prototype="int SlpashCallBack(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+
+[MainPanelCallBack]
+Class="Function"
+Prototype="int MainPanelCallBack(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+
+[SequenceListCallBack]
+Class="Function"
+Prototype="int SequenceListCallBack(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[FixtureCodeCheck]
+Class="Function"
+Prototype="int FixtureCodeCheck(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[EnableFixtureCheck]
+Class="Function"
+Prototype="int EnableFixtureCheck(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[RunSelectedSequence]
+Class="Function"
+Prototype="int RunSelectedSequence(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[AppMgr_RTE]
+Class="Function"
+Prototype="long AppMgr_RTE(CAObjHandle caServerObjHandle, void *caCallbackData, CAObjHandle exec, CAObjHandle initiatingThread, short *showDialog, short *breakExecution);"
+
+[AppMgr_EndExec]
+Class="Function"
+Prototype="long AppMgr_EndExec(CAObjHandle caServerObjHandle, void *caCallbackData, CAObjHandle exec);"
+
+[AppMgr_UIMsg]
+Class="Function"
+Prototype="long AppMgr_UIMsg(CAObjHandle caServerObjHandle, void *caCallbackData, CAObjHandle uiMsg, short *cancel);"
+
+[ExecMgr_RunStateChanged]
+Class="Function"
+Prototype="long ExecMgr_RunStateChanged(CAObjHandle caServerObjHandle, void *caCallbackData, enum TSUIEnum_ExecutionRunStates newRunState);"
+
+[RunSelectedSeq_menu]
+Class="Function"
+Prototype="void RunSelectedSeq_menu(int menuBar, int menuItem, void *callbackData, int panel);"
+
+[Enable_FCC_menu]
+Class="Function"
+Prototype="void Enable_FCC_menu(int menuBar, int menuItem, void *callbackData, int panel);"
+
+[CheckRunState]
+Class="Function"
+Prototype="int CheckRunState(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
